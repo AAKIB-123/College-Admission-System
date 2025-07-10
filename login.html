@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.min.js"></script>
+    <script>
+
+$("document").ready(function(){
+                function blink(){
+                    $("h1").fadeOut(600).fadeIn(600,blink);
+                }
+                blink();
+            });
+ 
+         $("document").ready(function(){
+                $("#username").mouseover(function(){
+                    $("body").css("background-color","green")
+                });
+                $("#password").mouseover(function(){
+                    $("body").css("background-color","skyblue")
+                });
+            });
+    </script>
+</head>
+<body>
+    <div id="blink"></div>
+    <header>
+        <nav class="navbar">
+            <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="admission.html">ADMISSION</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="login-saction">
+            <h1>login</h1>
+            <form action="#SS">
+                    <label for="username">username:</label>
+                    <input type="text"  maxlength="10" size="10"  id="username" name="username" placeholder="enter username here"><br><br>
+                    <label for="password">password:</label>
+                    <input type="password"   id="password" name="password" placeholder="enter password here"><br><br>  
+                    <input type="submit" value="Login" id="btn1">
+            </form>
+            <p>Don't have account? <a href="register.html">Register here</a></p>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 design by Aakib.a.patel</p>
+    </footer>
+</body>
+</html>

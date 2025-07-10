@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>register page</title>
+    <style>
+       
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.min.js"></script>
+    <script>
+          $("document").ready(function(){
+                function blink(){
+                    $("h1").fadeOut(600).fadeIn(600,blink);
+                }
+                blink();
+            });
+ 
+        $("document").ready(function(){
+            $("#name").mouseover(function(){
+                    $("body").css("background-color","red")
+                });
+                $("#email").mouseover(function(){
+                    $("body").css("background-color","blue")
+                });
+                $("#username").mouseover(function(){
+                    $("body").css("background-color","green")
+                });
+                $("#password").mouseover(function(){
+                    $("body").css("background-color","yellow")
+
+                });
+                $("#password").on("input", function() {
+            var password = $(this).val();
+            var passwordError = $("#passworderror");
+
+            if (password.length < 6) {
+                passwordError.show();
+                passwordError.text("Password must be at least 6 characters long.");
+            } else {
+                passwordError.hide();
+            }
+        });
+
+        $("#confirmpassword").on("input", function() {
+            var password = $("#password").val();
+            var confirmPassword = $(this).val();
+            var confirmPasswordError = $("#cpassworderror");
+
+            if (confirmPassword !== password) {
+                confirmPasswordError.show();
+                confirmPasswordError.text("Passwords do not match.");
+            } else {
+                confirmPasswordError.hide();
+            }
+        });
+              });
+      
+       
+
+
+
+    </script>
+</head>
+<body>
+    <div id="blink"></div>
+        <header>
+                <nav class="navbar">
+                    <ul>
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="contact.html">CONTACT</a></li>
+                            <li><a href="admission.html">ADMISSION</a></li>
+                            <li><a href="about.html">ABOUT</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section class="register-saction">
+                    <h1>register</h1>
+                    <form action="/index.html">
+                            <label for="name">full name:</label>
+                            <input type="text"  maxlength="10" size="10"  id="name" name="name" placeholder="enter fullname here"><br><br>
+                            <label for="email">email:</label>
+                            <input type="email"   id="email" name="email" placeholder="enter email id here"><br><br> 
+                            <label for="username">username:</label>
+                            <input type="text"   id="username" name="username" placeholder="enter username here"><br><br>
+                            <label for="password">password:</label>
+                            <input type="password"   id="password" name="password" placeholder="enter password here"><br><br>
+                            <span id="passworderror" class="error">password must be at least 6 charecter</span>
+                            <label for="password">confirm password:</label>
+                            <input type="password"   id="confirmpassword" name="confirmpassword" placeholder="enter confirm sspassword here"><br><br>
+                            <span id="cpassworderror" class="error">password do not match</span>
+
+                            <input type="submit" value="register now" id="btn1">
+                    </form>
+                    <p>Don't have account? <a href="login.html">login here</a></p>
+                </section>
+        
+            </main>
+            <footer>
+                <p>&copy; 2024 design by Aakib.a.patel</p>
+            </footer>
+</body>
+</html>

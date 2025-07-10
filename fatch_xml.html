@@ -1,0 +1,87 @@
+6<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Data Fetch Program</title>
+    <style>
+        body{
+             background-color: #ddd;
+             text-align: center ;
+             margin-top: 100px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            background-color:antiquewhite
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        h1{
+            color: orange;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        p{
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        button{
+            background-color: green;
+            color: black;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 50px;
+            margin-top: 100px;
+        }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        function loadXmlData() {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        var xmlDoc = xhr.responseXML;
+                        var students = xmlDoc.getElementsByTagName("STUDENT");
+                        var output = "<table border='1'>";
+                        output += "<tr><th> STUDENT_ID </th><th> STUDENT_NAME </th><th> STUDENT_AGE </th><th> STUDENT_GENDER </th><th> STUDENT_MO </th><th> STUDENT_PROGRAMM </th></tr>";
+                        for (let i = 0; i < students.length; i++) {
+                            var s_id = students[i].getElementsByTagName("STUDENT_ID")[0].childNodes[0].nodeValue;
+                            var s_name = students[i].getElementsByTagName("STUDENT_NAME")[0].childNodes[0].nodeValue;
+                            var studentAge = students[i].getElementsByTagName("STUDENT_AGE")[0].childNodes[0].nodeValue;
+                            var studentGender = students[i].getElementsByTagName("STUDENT_GENDER")[0].childNodes[0].nodeValue;
+                            var studentMo = students[i].getElementsByTagName("STUDENT_MO")[0].childNodes[0].nodeValue;
+                            var studentProgram = students[i].getElementsByTagName("STUDENT_PROGRAMM")[0].childNodes[0].nodeValue;
+
+                            output += `<tr><td>${s_id}</td><td>${s_name}</td><td>${studentAge}</td><td>${studentGender}</td><td>${studentMo}</td><td>${studentProgram}</td></tr>`;
+                        }
+                        output += "</table>";
+                        document.getElementById("display").innerHTML = output;
+                    } else {
+                        document.getElementById("display").innerHTML = "Error: Failed to fetch XML data.";
+                    }
+                }
+            };
+            xhr.open('GET', 'COLLEGE_ADD_SYS.xml', true);
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>xml data fatch</h1>
+    <p>fatch the student data here below </p>
+    <button onclick="loadXmlData()">Click to fetch</button><br><br><br>
+    <div id="display"></div>
+</body>
+</html>

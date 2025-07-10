@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>collage addmition system</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="jquery.min.js"></script>
+    <script>
+         $("document").ready(function(){
+                function blink(){
+                    $("h1").fadeOut(600).fadeIn(600,blink);
+                }
+                blink();
+            });
+ 
+    </script>
+</head>
+<body>
+    <div id="blink"></div>
+    <div class="navbar">
+        <div class="logo">CSA</div>
+    <ul>
+        <li><a href="index.html" >HOME</a></li>
+        <li><a href="about.html" >ABOUT</a></li>
+        <li><a href="contact.html" >CONTACT</a></li>
+        <li><a href="fatch_json.html" >FATCH JSON</a></li>
+        <li><a href="fatch_xml.html" >FATCH XML</a></li>
+        
+    </ul>    
+    </div> 
+
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to college admission system</h1>
+            <p>this is a web-based system for managing collage admissions.</p>
+            <div class="buttons">
+                <a href="login.html"><button>Login</button></a>
+                <a href="register.html"><button>Ragister</button></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy 2024 design by Aakib.a.patel 
+    </footer>
+
+</body>
+</html>

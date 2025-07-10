@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX JSON Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ddd;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h2{
+            text-align: center;
+            margin-top: 20px;
+            color: orange;
+            font-size: 50px;
+        }
+        input[type="number"]{
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        button{
+            background-color: orange;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        #result{
+                margin-top: 20px;
+                color: green;
+                text-align: center;
+        }
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Search Record</h2>
+    <input type="number" id="ADMISSION_ID" placeholder="Enter ADMISSION_ID*">
+    <button id="searchBtn">Search</button>
+    <h3>Result:</h3>
+    <div id="result"></div>
+    <script>
+        $(document).ready(function(){
+            $("#searchBtn").click(function(){
+                var searchTerm = $("#ADMISSION_ID").val().toLowerCase();
+               
+                $("#result").html(""); // Clear previous result
+
+                $.ajax({
+                    url: "COLLAGE_ADD_SYS.json", // JSON file method: "GET",
+                    dataType: "json",
+                    success: function(COLLAGE_ADD_SYS) {
+                        var found = false;
+                        $.each(COLLAGE_ADD_SYS, function(index, record) {
+                            if (record.ADMISSION_ID.toLowerCase().includes(searchTerm)) {
+                                $("#result").append("<p><strong>ADMISSION_ID:</strong> " + record.ADMISSION_ID + "<br><strong>STUDENT_Name:</strong> " + record.STUDENT_NAME + "<br><strong>ADMISSION_DATE:</strong> " + record.ADMISSION_DATE + "<br><strong>EMAIL:</strong>" +record.EMAIL+  "</p>");
+                                found = true;
+                            }
+                        });
+
+                        if (!found) {
+                            $("#result").html("<p>No record found.</p>");
+                        }
+                    },
+                    error: function() {
+                        $("#result").html("<p>Error loading data.</p>");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

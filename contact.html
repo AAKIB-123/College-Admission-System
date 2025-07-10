@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>contact page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.min.js"></script>
+    <script>
+          $("document").ready(function(){
+                function blink(){
+                    $("h2").fadeOut(600).fadeIn(600,blink);
+                }
+                blink();
+            });
+ 
+    </script>
+</head>
+<body>
+    <div id="blink"></div>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="admission.html">ADMISSTION</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-saction">
+            <h2>Contact us:</h2>
+            <p>we'd love to hear from you! please use the form below to send us a massage,or contact us diractly:</p>
+            <form>
+                <label for="name">NAME:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">EMAIL:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="massage">MASSAGE:</label>
+                <textarea id="massage" name="name" required></textarea><br><br>
+                <input type="submit" value="SEND">
+            </form>
+            <div class="contact-info">
+                <h2>Contact Information:</h2>
+                <p><strong>Email:</strong>info@collegeadmissionsystem.com</p>
+                <p><strong>phone:</strong>+1 (555) 555 5555</p>
+                <p><strong>address:</address></strong>123 ,main street,anytown,ca 12345</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>
+            &copy; 2024 design Aakib.a.patel
+        </p>
+    </footer>
+</body>
+</html>
